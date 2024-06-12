@@ -1,0 +1,129 @@
+@use "./styleUtils/index" as *;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a,
+button,
+input,
+select {
+  text-decoration: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $graphik_regular;
+}
+
+.title {
+  font-family: $freizeit_bold;
+  font-weight: 500 !important;
+}
+html {
+  // scroll-behavior: smooth;
+}
+button {
+  font-family: $graphik_regular !important;
+  font-weight: 500;
+}
+body {
+  // @include webkitlarge;
+  @include webkitnone;
+}
+.main_container {
+  width: 100%;
+  overflow: auto;
+  @include webkit;
+  height: auto;
+  max-width: 1920px;
+  min-width: 360px;
+  margin: 0 auto;
+}
+
+.qr_code_container {
+  width: 556px;
+  background: white;
+  margin: auto;
+  // height: 556px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  flex-direction: column;
+  padding: 84px 57px 60px;
+
+  .scan {
+    background: #ebf6f0;
+    border-radius: 40px;
+    padding: 10px 30px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 29px;
+    color: var(--primary);
+    margin-bottom: 26px;
+  }
+  .btn_icon_box {
+    margin: 28px 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      margin-right: 16px !important;
+      &:last-child {
+        margin-right: 0 !important;
+      }
+    }
+  }
+  .last_text {
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #767b81;
+  }
+}
+
+.msg {
+  position: fixed;
+  background-color: rgb(4, 182, 4);
+  border-radius: 5px;
+  color: white;
+  margin: 0.5rem auto;
+  transform: translateX(150vw);
+  padding: 0.5rem 4rem 0.5rem 2rem;
+  width: auto;
+  display: block;
+  top: 0.5rem;
+  right: 2rem;
+  z-index: 150;
+  -webkit-animation: msg 0.5s ease forwards;
+  animation: msg 0.5s ease forwards;
+}
+
+@keyframes msg {
+  to {
+    transform: translateX(0);
+  }
+}
+@media (max-width: 500px) {
+  .msg {
+    position: fixed;
+    width: 95%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1.5rem;
+    transform: translate(0);
+    -webkit-clip-path: inset(0 0 100% 0);
+    clip-path: inset(0 0 100% 0);
+    animation: sm-msg 0.5s ease forwards;
+  }
+  @keyframes sm-msg {
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+}

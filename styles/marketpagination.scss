@@ -1,0 +1,37 @@
+@use "./styleUtils/index" as *;
+.pagination-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem 0;
+  margin-top: 40px;
+  margin-left: 1rem;
+  @include mq(600px) {
+    margin: 40px auto;
+  }
+  p {
+    font-size: 14px;
+    color: #718096;
+  }
+  button {
+    font-size: 14px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    @include mq(600px) {
+      width: 30px;
+      height: 30px;
+    }
+    &.Mui-selected {
+      background-color: var(--primary);
+      color: white;
+      &:hover {
+        background: var(--primary) !important;
+      }
+    }
+  }
+  li {
+    padding: 0;
+    margin: 0;
+  }
+}

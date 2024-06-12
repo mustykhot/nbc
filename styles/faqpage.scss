@@ -1,0 +1,110 @@
+@use "./styleUtils/index" as *;
+
+.pd_faq_page {
+  padding-top: 260px;
+  @include mq(768px) {
+    padding-top: 140px;
+  }
+  .pd_hero {
+    margin-bottom: 100px;
+    @include mq(768px) {
+      margin-bottom: 76px;
+    }
+    .text_box {
+      @include container;
+    }
+    .title {
+      @include title48;
+      margin-bottom: 12px;
+      text-align: center;
+      @include mq(500px) {
+        text-align: left;
+      }
+    }
+    .description {
+      @include description;
+      text-align: center;
+      margin: auto;
+      @include mq(500px) {
+        display: none;
+        text-align: left;
+      }
+      &.mobile {
+        display: none;
+        @include mq(500px) {
+          display: block;
+        }
+      }
+
+      a {
+        text-decoration: underline;
+        color: var(--primary);
+      }
+      @include mq(900px) {
+        width: 100%;
+      }
+    }
+  }
+  .pd_second_section {
+    @include container;
+    margin: auto;
+    border-radius: 20px;
+    margin-bottom: 126px;
+    width: 70%;
+    @include mq(950px) {
+      width: 90%;
+    }
+    @include mq(768px) {
+      padding: 0;
+
+      background: none;
+      width: 100%;
+    }
+    .flex_stack {
+      overflow-x: auto;
+      width: 100%;
+      background: var(--grey03);
+      padding: 24px;
+      border-radius: 8px;
+      @include webkitnone;
+      .status_chip {
+        margin: 0;
+        margin-right: 56px;
+        font-size: 16px;
+        font-weight: 400;
+        @include mq(768px) {
+          margin-right: 24px;
+        }
+        &:last-child {
+          margin-right: 0;
+          @include mq(768px) {
+            margin-right: 0px;
+          }
+        }
+      }
+      @include mq(768px) {
+        padding: 16px 20px;
+      }
+    }
+    .accordion_section {
+      margin-top: 52px;
+      @include mq(768px) {
+        padding: 0 5%;
+        margin-top: 24px;
+      }
+    }
+    .accordion_box {
+      @include accordion_box;
+      .accordion_title {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .MuiAccordionDetails-root {
+        padding-left: 0 !important;
+      }
+      .content {
+        line-height: 30px;
+      }
+    }
+  }
+}

@@ -1,0 +1,379 @@
+@use "./styleUtils/index" as *;
+
+.label_box {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  svg {
+    margin-left: 5px;
+    margin-top: 3px;
+  }
+  .tooltip {
+    overflow: hidden;
+    position: absolute;
+    top: 25px;
+    left: 0;
+
+    border-radius: 5px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+    .cover_tooltip {
+      padding: 15px;
+      width: 100%;
+    }
+    p {
+      font-size: 14px;
+      line-height: 26px;
+    }
+  }
+}
+.upload_box {
+  padding: 10px 0;
+  .label_box {
+    @include mq(600px) {
+      font-size: 12px !important;
+    }
+  }
+}
+.form-group {
+  &.file {
+    p.file_name {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 18px;
+      margin-left: 13px;
+      color: #c1c1c1;
+    }
+  }
+}
+.select-group {
+  .MuiSelect-select {
+    padding-left: 0 !important;
+    @include mq(768px) {
+      min-height: 1em;
+    }
+  }
+}
+.input-icon-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  background: #ffffff;
+  border-radius: 8px;
+  @include mq(768px) {
+    height: 46px;
+  }
+  &.border {
+    border: 1px solid #c8c8c8;
+  }
+  &.icon-placeholder {
+    input {
+      padding-left: 45px !important;
+    }
+  }
+
+  &.select-wrap {
+    .icon {
+      cursor: auto;
+      color: var(--primary);
+      pointer-events: none;
+      padding: 0 0.1rem;
+
+      svg {
+        fill: var(--primary);
+        width: 18px;
+        height: 18px;
+      }
+    }
+    select {
+      padding-right: 1.3rem !important;
+      cursor: pointer;
+    }
+  }
+  input,
+  .input select {
+    height: 100% !important;
+  }
+}
+
+// create a div with classname of form-group-wra to arrange input in 2's
+.form-group-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+
+  .form-group {
+    width: 48%;
+  }
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0;
+  width: 100%;
+
+  label,
+  .label {
+    margin-bottom: 8px;
+    @include flex($justify: space-between);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #1e1e1e !important;
+
+    @include mq(600px) {
+      font-size: 12px !important;
+    }
+  }
+
+  .icon {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    padding: 0 0.8rem;
+    bottom: 0;
+    border: none;
+    font-size: 12px;
+    background-color: inherit;
+    z-index: 2;
+    height: 90%;
+    margin: 0.1rem;
+    margin-right: 19px;
+    @include flex();
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+    color: var(--textClr);
+    &:disabled {
+      pointer-events: none;
+      cursor: text;
+    }
+    &.startIcon-left {
+      left: 0;
+      border-radius: 30px 0 0 30px;
+    }
+    &.startIcon-right {
+      right: 0;
+      border-radius: 30px 0 0 30px;
+    }
+    &.icon-right {
+      right: 0;
+      cursor: pointer;
+      margin-right: 0.3rem;
+      border-radius: inherit;
+    }
+  }
+  &.half-width {
+    width: 48%;
+  }
+}
+.filter-select {
+  width: fit-content;
+  max-width: 197px;
+  text-transform: capitalize !important;
+}
+.custom-checkbox {
+  border: 1px solid var(--primary);
+  margin: 0.4rem 0 !important;
+  margin-right: 1rem !important;
+  padding-left: 0.6rem;
+  border-radius: 4px;
+  span {
+    font-size: 14px;
+  }
+  svg {
+    font-size: 18px;
+  }
+  &.active {
+    border-color: var(--primary);
+  }
+}
+/*custom select arrow*/
+select::-ms-expand {
+  display: none;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.upload-pdf {
+  width: 100%;
+  .input {
+    height: 45px;
+    max-height: 45px;
+    @include flex($justify: space-between);
+    padding: 0 0.3rem 0 1rem;
+  }
+  button {
+    height: 85% !important;
+    color: white !important;
+  }
+}
+.form-group {
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  .input,
+  .textarea,
+  .select-mui {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: hidden;
+    padding: 0 1rem;
+    border-radius: inherit;
+    font-size: 16px;
+    flex-grow: 2;
+    line-height: 22px;
+    color: #1e1e1e;
+    border: 1px solid #c8c8c8;
+
+    background: #ffffff;
+    &::placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      /* identical to box height */
+
+      color: #c1c1c1;
+    }
+    &:focus {
+      border: 1px solid #ebebeb;
+      outline: none;
+    }
+    &:disabled {
+      background: #ebebeb;
+    }
+  }
+}
+textarea {
+  line-height: 22px;
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height */
+
+    color: #c1c1c1;
+  }
+}
+::placeholder {
+  color: #b5b5bd;
+}
+// material ui select
+.select-mui {
+  padding: 0;
+  border-radius: 8px !important;
+  background-color: var(--whiteClr);
+  font-size: 16px !important;
+
+  svg {
+    fill: var(--iconBg);
+  }
+  &,
+  input {
+    border: none !important;
+    font-size: 16px;
+  }
+  fieldset {
+    border-radius: 8px;
+    border-width: 1px !important;
+    border-color: #c8c8c8;
+    &:focus {
+      border-color: #c8c8c8 !important;
+    }
+  }
+}
+.menu-item {
+  font-size: 16px !important;
+  &.placeholder {
+    color: #b5b5bd;
+  }
+  &:hover,
+  &.Mui-selected {
+    background-color: var(--primary) !important;
+    color: white !important;
+  }
+}
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  width: 100%;
+  font-size: 16px;
+}
+.form-group .textarea {
+  height: 96px !important;
+  background: #ffffff;
+  resize: none;
+  border: 1px solid #c8c8c8 !important;
+  border-radius: 8px;
+  // max-height: 96px;
+  // outline: none;
+  padding: 10px 1rem;
+  cursor: default;
+  // &.extraHeight {
+  //   height: 330px !important;
+  position: relative;
+  // }
+  .count {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    @include mq(600px) {
+      font-size: 12px;
+    }
+  }
+}
+
+.is-invalid {
+  border-color: red !important;
+}
+
+.input-err-msg {
+  color: #ff0606;
+  width: 100%;
+  font-weight: 500;
+  font-size: 8.51965px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.commentInput {
+  margin-bottom: 0;
+  input,
+  .input-icon-wrap {
+    background: transparent;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    &:focus {
+      background: transparent;
+    }
+    svg {
+      width: 20px;
+    }
+  }
+  .input-icon-wrap {
+    border-top: 1px solid rgba($color: #000000, $alpha: 0.06);
+
+    svg path {
+      fill: rgba($color: #000000, $alpha: 0.6);
+    }
+  }
+}

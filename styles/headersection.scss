@@ -1,0 +1,58 @@
+@use "./styleUtils/index" as *;
+.pd_header_section {
+  .title {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 53px;
+    margin-bottom: 12px;
+    letter-spacing: -0.015em;
+    color: var(--black01);
+    span {
+      color: var(--primary);
+    }
+    @include mq(600px) {
+      font-size: 32px;
+      line-height: 35px;
+    }
+  }
+  .description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    color: var(--black03);
+    width: 55%;
+    @include mq(1100px) {
+      width: 100%;
+    }
+    @include mq(600px) {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+  &.center {
+    .title,
+    .description {
+      text-align: center;
+      margin: auto;
+      margin-bottom: 12px;
+    }
+  }
+  &.white {
+    .title {
+      color: var(--white);
+    }
+    .description {
+      color: var(--grey04);
+    }
+  }
+  &.small {
+    .title {
+      font-size: 32px;
+      line-height: 35px;
+      @include mq(600px) {
+        font-size: 24px;
+        line-height: 26px;
+      }
+    }
+  }
+}
